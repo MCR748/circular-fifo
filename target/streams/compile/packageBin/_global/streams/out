@@ -1,0 +1,19 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /media/Uni/Intern-projects/Practice/Chisel/Practice/fifo/circularfifo/target/scala-2.12/circularfifo_2.12-0.1.0-SNAPSHOT.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReaderIO.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /media/Uni/Intern-projects/Practice/Chisel/Practice/fifo/circularfifo/target/scala-2.12/classes/ReaderIO.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	WriterIO.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /media/Uni/Intern-projects/Practice/Chisel/Practice/fifo/circularfifo/target/scala-2.12/classes/WriterIO.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	MemModuleMain$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /media/Uni/Intern-projects/Practice/Chisel/Practice/fifo/circularfifo/target/scala-2.12/classes/MemModuleMain$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	CircularFifo.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /media/Uni/Intern-projects/Practice/Chisel/Practice/fifo/circularfifo/target/scala-2.12/classes/CircularFifo.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	CircularFifo$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /media/Uni/Intern-projects/Practice/Chisel/Practice/fifo/circularfifo/target/scala-2.12/classes/CircularFifo$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	CircularFifo$State$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /media/Uni/Intern-projects/Practice/Chisel/Practice/fifo/circularfifo/target/scala-2.12/classes/CircularFifo$State$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	MemModuleMain.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /media/Uni/Intern-projects/Practice/Chisel/Practice/fifo/circularfifo/target/scala-2.12/classes/MemModuleMain.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	MemModuleMain$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /media/Uni/Intern-projects/Practice/Chisel/Practice/fifo/circularfifo/target/scala-2.12/classes/MemModuleMain$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m

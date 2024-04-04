@@ -1,0 +1,4 @@
+[debug] [circularfifo-test] Classpath dependencies List()
+[debug] [circularfifo-test] Dependencies from configurations List(circularfifo)
+[debug] Bloop wrote the configuration of project 'circularfifo-test' to '/media/Uni/Intern-projects/Practice/Chisel/Practice/fifo/circularfifo/.bloop/circularfifo-test.json'
+[success] Generated .bloop/circularfifo-test.json

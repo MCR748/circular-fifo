@@ -1,0 +1,10 @@
+[0m[[0m[31merror[0m] [0m[0m/media/Uni/Intern-projects/Practice/Chisel/Practice/fifo/src/main/scala/FifoReg.scala:6:7: WriterIO is already defined as class WriterIO[0m
+[0m[[0m[31merror[0m] [0m[0mclass WriterIO(size: Int) extends Bundle {[0m
+[0m[[0m[31merror[0m] [0m[0m      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/media/Uni/Intern-projects/Practice/Chisel/Practice/fifo/src/main/scala/FifoReg.scala:13:7: ReaderIO is already defined as class ReaderIO[0m
+[0m[[0m[31merror[0m] [0m[0mclass ReaderIO(size: Int) extends Bundle {[0m
+[0m[[0m[31merror[0m] [0m[0m      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/media/Uni/Intern-projects/Practice/Chisel/Practice/fifo/src/main/scala/FifoReg.scala:58:8: MemModuleMain is already defined as object MemModuleMain[0m
+[0m[[0m[31merror[0m] [0m[0mobject MemModuleMain extends App {[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0mthree errors found[0m
