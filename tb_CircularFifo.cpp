@@ -3,27 +3,21 @@
 #include <cstdlib>
 #include <verilated.h>
 #include <verilated_vcd_c.h>
-//Replace $(Module-name) with the defined module name in chisel
 #include "VCircularFifo.h"
 
 // Change simulation time to number of cycles required
-// Here 300
 #define MAX_SIM_TIME 300
 //To keep track of the current cycle
 vluint64_t sim_time = 0;
-//If need to count posedges
-//Cannot use sim_time to keep count of the cycles
-//vluint64_t posedge_cnt = 0;
 
 
-int main(int argc, char** argv, char** env) {
-    //Replace $(Module-name) with the defined module name in chisel 
+int main(int argc, char** argv, char** env) { 
     VCircularFifo *dut = new VCircularFifo;
 
     //To generate trace
     Verilated::traceEverOn(true);
     VerilatedVcdC *m_trace = new VerilatedVcdC;
-    dut->trace(m_trace, 5);     //Show signals down to 5 levels deep
+    dut->trace(m_trace, 5);     
     m_trace->open("waveform.vcd");
 
     //Simulation loop
@@ -38,8 +32,7 @@ int main(int argc, char** argv, char** env) {
             dut->io_enq_dinValid = 0;
             dut->io_deq_read = 0;
         }
-        
-        
+        //Simulation for a fifo width of 8 bits and depth of 4
 
         //Add input signals here
         if (dut->clock) {

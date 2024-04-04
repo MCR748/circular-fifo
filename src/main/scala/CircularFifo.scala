@@ -30,11 +30,20 @@ class CircularFifo(size: Int, depth: Int) extends Module {
   }
   import State._
 
+  def counter(incr: Bool, depth: Int): (UInt, UInt) = {
+    val currValue = RegInit(0.U((log2Ceil(depth)).W))
+    val nextValue = Mux(currValue === depth.U - 1.U, 0.U, currValue + 1.U)
+    currValue := Mux(incr, nextValue, currValue)
+    //Returning UInt values
+    (currValue, nextValue)
+  }
+
   //One additional bit is needed to distinguish between empty state and full state
-  val readPointer = RegInit(0.U((log2Ceil(depth)).W))
-  val writePointer = RegInit(0.U((log2Ceil(depth)).W))
-  val readWrapBit = RegInit(false.B)
-  val writeWrapBit = RegInit(false.B)
+  val readIncr = WireDefault(false.B)
+  val writeIncr = WireDefault(false.B)
+  val (readPointer, nextReadPointer) = counter(readIncr, depth)
+  val (writePointer, nextWritePointer) =  counter(writeIncr, depth)
+
   //Need to write in a different way
   val stateReg = RegInit(empty)
   val dataReg = RegInit(0.U(size.W))
@@ -43,38 +52,38 @@ class CircularFifo(size: Int, depth: Int) extends Module {
   when(stateReg === empty){
     
     when(io.enq.write && io.enq.dinValid){
-      writePointer := Mux(writePointer === depth.U - 1.U,0.U,writePointer + 1.U)
-      writeWrapBit := Mux(writePointer === depth.U - 1.U,!writeWrapBit,writeWrapBit)
       stateReg := available
       storage(writePointer) := io.enq.din
+      writeIncr := true.B
     }
 
   } .elsewhen(stateReg === available){
     when(io.enq.write && io.enq.dinValid){
       //logic to full state
       
-      when((readPointer === writePointer) && (readWrapBit === !writeWrapBit)){
+      when((readPointer === nextWritePointer) ){
         stateReg := full
       }
       storage(writePointer) := io.enq.din
-      writePointer := Mux(writePointer === depth.U - 1.U,0.U,writePointer + 1.U)
-      writeWrapBit := Mux(writePointer === depth.U - 1.U,!writeWrapBit,writeWrapBit)
+      writeIncr := true.B
     }
     when(io.deq.read){
       //logic to empty state
-      when((readPointer === writePointer) && (readWrapBit === writeWrapBit)){
+      when((nextReadPointer === writePointer) ){
         stateReg := empty
       }
-      readPointer := Mux(readPointer === depth.U - 1.U,0.U,readPointer + 1.U)
-      readWrapBit := Mux(readPointer === depth.U - 1.U,!readWrapBit,readWrapBit)
+      readIncr := true.B
     }
 
   } .elsewhen((stateReg === full)){
     when(io.deq.read){
-      readPointer := Mux(readPointer === depth.U - 1.U,0.U,readPointer + 1.U)
-      readWrapBit := Mux(readPointer === depth.U - 1.U,!readWrapBit,readWrapBit)
+      readIncr := true.B
       stateReg := available
     }
+  } .otherwise{
+    readIncr := false.B
+    writeIncr := false.B
+
   }
   
   io.enq.full := (stateReg === full)
